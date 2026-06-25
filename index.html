@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="SVCBench | Streaming Video Counting Benchmark">
+  <meta name="description" content="SVCBench is a streaming video counting benchmark for diagnosing spatial-temporal state maintenance in long videos.">
+  <meta name="keywords" content="SVCBench, video understanding, streaming video, counting benchmark, state maintenance, multimodal evaluation, ECCV 2026">
+  <meta name="author" content="SVCBench Team">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SVCBench">
+  <meta property="og:description" content="A streaming video counting benchmark for spatial-temporal state maintenance.">
+  <meta property="og:image" content="assets/og-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SVCBench">
+  <meta name="twitter:description" content="A streaming video counting benchmark for spatial-temporal state maintenance.">
+  <meta name="twitter:image" content="assets/og-card.svg">
+  <title>SVCBench | Streaming Video Counting Benchmark</title>
+
+  <link rel="icon" type="image/png" href="assets/cologo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora-blob blob-1"></span>
+    <span class="aurora-blob blob-2"></span>
+    <span class="aurora-blob blob-3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+  <header class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="SVCBench homepage">
+        <span class="brand-logo"><img src="assets/cologo.png" alt="Colalab logo"></span>
+        <span class="brand-word">SVCBench</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#overview" data-nav>Overview</a>
+        <a href="#benchmark" data-nav>Benchmark</a>
+        <a href="#data" data-nav>Data</a>
+        <a href="#results" data-nav>Results</a>
+        <a href="#release" data-nav>Release</a>
+        <a href="#citation" data-nav>Citation</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-cta" href="https://github.com/buaa-colalab/SVCBench" aria-label="Open code repository">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5 1.5 3-1.5-.4-1.5.4L12 2Zm0 17 1.5 3-1.5-.4-1.5.4L12 19ZM2 12l3-1.5-.4 1.5.4 1.5L2 12Zm17 0 3-1.5-.4 1.5.4 1.5L19 12Z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.4 15.1A7.7 7.7 0 0 1 8.9 3.6 9.3 9.3 0 1 0 20.4 15.1Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner reveal">
+        <span class="pill"><span class="pill-dot"></span>ECCV 2026 · Project Homepage</span>
+        <h1 class="hero-title">
+          <span class="grad-text">SVCBench</span>
+          <span class="hero-sub">A Streaming Video Counting Benchmark for Spatial-Temporal State Maintenance</span>
+        </h1>
+        <p class="lead">
+          Counting, reframed as a controlled probe for <strong>world-state maintenance</strong>. Rather than scoring only
+          a final answer, SVCBench asks video-language models to update object and event counts <em>along the timeline</em>,
+          exposing exactly when and where state tracking breaks.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#" aria-label="Paper link placeholder">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Zm8 1.5V8h4.5L14 3.5Z"/></svg>
+            Paper
+          </a>
+          <a class="button" href="https://github.com/buaa-colalab/SVCBench">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+            Code
+          </a>
+          <a class="button" href="https://huggingface.co/datasets/buaaplay/VCBench">
+            <span class="hf" aria-hidden="true">🤗</span>
+            Dataset
+          </a>
+          <a class="button ghost" href="#results">
+            Leaderboard
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5Z"/></svg>
+          </a>
+        </div>
+
+        <div class="stat-rail">
+          <div class="stat">
+            <strong data-count="406">0</strong>
+            <span>videos</span>
+          </div>
+          <div class="stat">
+            <strong data-count="1000" data-suffix="">0</strong>
+            <span>streaming QA pairs</span>
+          </div>
+          <div class="stat">
+            <strong data-count="4576">0</strong>
+            <span>timeline query points</span>
+          </div>
+          <div class="stat">
+            <strong data-count="10071">0</strong>
+            <span>state-change moments</span>
+          </div>
+          <div class="stat">
+            <strong data-count="8">0</strong>
+            <span>fine-grained subcategories</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stage reveal" aria-label="Streaming timeline illustration">
+        <div class="stage-glow"></div>
+        <div class="stage-card">
+          <div class="stage-head">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="stage-title">streaming query · world state</span>
+          </div>
+          <div class="stage-body">
+            <div class="frame-strip" aria-hidden="true">
+              <span class="frame f1"></span>
+              <span class="frame f2"></span>
+              <span class="frame f3"></span>
+              <span class="frame f4"></span>
+              <span class="frame f5"></span>
+            </div>
+            <div class="rail">
+              <span class="rail-line"></span>
+              <button class="qp qp-1 is-active" data-state="0" type="button" aria-label="Query point 1">t₁</button>
+              <button class="qp qp-2" data-state="1" type="button" aria-label="Query point 2">t₂</button>
+              <button class="qp qp-3" data-state="2" type="button" aria-label="Query point 3">t₃</button>
+              <button class="qp qp-4" data-state="3" type="button" aria-label="Query point 4">t₄</button>
+            </div>
+            <div class="state-readout" data-state-readout>
+              <div class="readout-row"><span>visible objects</span><strong data-key="visible">3</strong></div>
+              <div class="readout-row"><span>unique identities</span><strong data-key="unique">5</strong></div>
+              <div class="readout-row"><span>completed cycles</span><strong data-key="cycle">1</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="authors reveal">
+      <p class="team-label">SVCBench Team</p>
+      <p class="author-line">
+        Pengyiang Liu<sup>1,2</sup> · Zhongyue Shi<sup>1</sup> · Hongye Hao<sup>1</sup> · Qi Fu<sup>1</sup> ·
+        Xueting Bi<sup>1</sup> · Siwei Zhang<sup>1</sup> · Xiaoyang Hu<sup>1</sup> ·
+        Zitian Wang<sup>3,†</sup> · Linjiang Huang<sup>1</sup> · Si Liu<sup>1</sup>
+      </p>
+      <ol class="affil-list">
+        <li><span class="affil-num">1</span> Institute of Artificial Intelligence, Beihang University, Beijing, China</li>
+        <li><span class="affil-num">2</span> Meituan, Beijing, China</li>
+        <li><span class="affil-num">3</span> Hangzhou International Innovation Institute of Beihang University, Hangzhou, China</li>
+      </ol>
+      <p class="author-note"><sup>†</sup> Corresponding author</p>
+      <div class="affil-logos">
+        <a class="logo-chip" href="https://github.com/buaa-colalab" aria-label="Colalab"><img src="assets/cologo.png" alt="Colalab logo"></a>
+        <span class="logo-chip"><img class="logo-meituan" src="assets/meituan.svg" alt="Meituan logo"></span>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="section-grid">
+        <div class="reveal">
+          <p class="eyebrow">Motivation</p>
+          <h2>Counting is a compact stress test for world-state maintenance.</h2>
+        </div>
+        <div class="copy-stack reveal">
+          <p>
+            Long-video understanding is not just recognizing what happened. A model must continuously maintain internal
+            state as the scene evolves: how many objects are visible <em>now</em>, how many unique identities have appeared,
+            how many actions occurred, and how many full activity cycles have completed.
+          </p>
+          <p>
+            SVCBench decomposes this ability into <strong>object counting</strong> and <strong>event counting</strong>.
+            Every video carries frame-level state-change annotations, then is queried at multiple timestamps — so evaluation
+            can localize drift, missed updates, and inconsistent trajectories instead of grading a single final number.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="benchmark">
+      <div class="section-head reveal">
+        <p class="eyebrow">Benchmark Design</p>
+        <h2>Eight subcategories: snapshots, identities, events, and cycles.</h2>
+        <p class="muted-lead">Two families, four axes of difficulty, each probing a distinct failure mode of streaming state maintenance.</p>
+      </div>
+      <div class="task-grid">
+        <article class="task-card reveal">
+          <span class="task-tag tag-o">O1</span>
+          <h3>Visible Object State</h3>
+          <p>Snapshot and delta queries test whether counts update correctly as objects enter, leave, or become occluded.</p>
+          <span class="task-foot">Snapshot · Delta</span>
+        </article>
+        <article class="task-card reveal">
+          <span class="task-tag tag-o">O2</span>
+          <h3>Cumulative Identity State</h3>
+          <p>Unique-object and gain queries test whether identities are remembered after they disappear from view.</p>
+          <span class="task-foot">Unique · Gain</span>
+        </article>
+        <article class="task-card reveal">
+          <span class="task-tag tag-e">E1</span>
+          <h3>Instantaneous Event State</h3>
+          <p>Action and transit queries require detecting event-occurrence moments without static visual shortcuts.</p>
+          <span class="task-foot">Action · Transit</span>
+        </article>
+        <article class="task-card reveal">
+          <span class="task-tag tag-e">E2</span>
+          <h3>Complete Activity Cycles</h3>
+          <p>Episode and periodic queries measure whether the model tracks complete, repeating event cycles over time.</p>
+          <span class="task-foot">Episode · Periodic</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <div class="split-feature">
+        <div class="feature-card reveal">
+          <p class="eyebrow">Data</p>
+          <h2>A timeline-first benchmark package.</h2>
+          <p class="muted">
+            The homepage should make the dataset feel inspectable before download. The final page can add short clips and
+            GIFs here; this draft stays independent from unfinished camera-ready assets.
+          </p>
+          <ul class="check-list">
+            <li>Video metadata and subcategory labels</li>
+            <li>Frame-by-frame object and event state annotations</li>
+            <li>Streaming query timestamps with ground-truth trajectories</li>
+            <li>Reference scoring scripts for GPA, MoC, and UDA</li>
+          </ul>
+        </div>
+        <div class="metric-stack reveal">
+          <article class="metric-card">
+            <div class="metric-key">GPA</div>
+            <div>
+              <h3>Gaussian Precision Accuracy</h3>
+              <p>Rewards numerically close counts; tolerates near-misses with a soft Gaussian around the ground truth.</p>
+            </div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-key">MoC</div>
+            <div>
+              <h3>Monotonicity Consistency</h3>
+              <p>Checks trajectory shape for cumulative quantities that should never decrease over time.</p>
+            </div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-key">UDA</div>
+            <div>
+              <h3>Update Detection Accuracy</h3>
+              <p>Tests whether the prediction actually changes when the ground-truth state changes.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="results">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leaderboard</p>
+        <h2>Current models remain far below human state maintenance.</h2>
+        <p class="muted-lead">Overall GPA on SVCBench. Even strong models look temporally smooth while missing the precise updates counting demands.</p>
+      </div>
+
+      <div class="results-wrap">
+        <div class="board reveal" data-board>
+          <div class="board-head">
+            <span>Model</span>
+            <span class="hide-sm">Setting</span>
+            <span class="board-metric">Overall GPA</span>
+          </div>
+          <!-- rows injected by JS from data, sorted by GPA -->
+        </div>
+
+        <aside class="board-side reveal">
+          <div class="legend-card">
+            <h3>How to read it</h3>
+            <p>Bars are scaled to the human ceiling (96.1). Hover a row to surface its MoC and UDA.</p>
+            <div class="legend-row"><span class="legend-chip chip-human"></span>Human ceiling</div>
+            <div class="legend-row"><span class="legend-chip chip-prop"></span>Proprietary multimodal</div>
+            <div class="legend-row"><span class="legend-chip chip-open"></span>Open-source · offline</div>
+            <div class="legend-row"><span class="legend-chip chip-online"></span>Open-source · online</div>
+          </div>
+          <div class="gap-card">
+            <span class="gap-num"><span data-count="59" data-suffix=" pts">0</span></span>
+            <p>Gap between human (96.1) and the best model (37.0) on overall GPA.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="release">
+      <div class="section-head reveal">
+        <p class="eyebrow">Homepage Construction</p>
+        <h2>One stable project URL, routing users to every asset.</h2>
+        <p class="muted-lead">Replace the two separate paper links with a single homepage; keep GitHub and Hugging Face as cards here.</p>
+      </div>
+      <div class="release-grid">
+        <article class="release-card reveal">
+          <span class="rnum">01</span>
+          <h3>Primary Project URL</h3>
+          <p>Publish this folder via GitHub Pages as <code>buaa-colalab.github.io/SVCBench</code> or a dedicated <code>SVCBench_page</code> repo.</p>
+        </article>
+        <article class="release-card reveal">
+          <span class="rnum">02</span>
+          <h3>Resource Buttons</h3>
+          <p>Keep paper, code, Hugging Face dataset, supplementary, and leaderboard visible above the fold.</p>
+        </article>
+        <article class="release-card reveal">
+          <span class="rnum">03</span>
+          <h3>Visual Evidence</h3>
+          <p>Add a teaser figure, two or three timeline examples, and short clips once camera-ready assets are final.</p>
+        </article>
+        <article class="release-card reveal">
+          <span class="rnum">04</span>
+          <h3>Long-Term Updates</h3>
+          <p>Host the changelog, leaderboard, download mirrors, and protocol clarifications without touching the PDF.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="citation">
+      <div class="section-head reveal">
+        <p class="eyebrow">Citation</p>
+        <h2>Cite SVCBench</h2>
+      </div>
+      <div class="bib-card reveal">
+        <div class="bib-head">
+          <span class="bib-file">svcbench.bib</span>
+          <button class="copy-button" type="button" data-copy-bibtex>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 2h9a2 2 0 0 1 2 2v12h-2V4H9V2Zm-3 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/></svg>
+            <span class="copy-label">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex"><code>@inproceedings{liu2026svcbench,
+  title     = {SVCBench: A Streaming Video Counting Benchmark for
+               Spatial-Temporal State Maintenance},
+  author    = {Liu, Pengyiang and Shi, Zhongyue and Hao, Hongye and Fu, Qi and
+               Bi, Xueting and Zhang, Siwei and Hu, Xiaoyang and Wang, Zitian and
+               Huang, Linjiang and Liu, Si},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo"><img src="assets/cologo.png" alt="Colalab logo"></span>
+        <span>SVCBench · Colalab</span>
+      </div>
+      <p>Streaming Video Counting Benchmark · Project homepage draft.</p>
+      <div class="footer-links">
+        <a href="https://github.com/buaa-colalab/SVCBench">GitHub</a>
+        <a href="https://huggingface.co/datasets/buaaplay/VCBench">Hugging Face</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
