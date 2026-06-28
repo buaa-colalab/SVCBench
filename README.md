@@ -40,21 +40,29 @@ http://127.0.0.1:8123
 
 A static server must be running; opening `index.html` directly with `file://` can break Google Fonts and the leaderboard script.
 
+## Design
+
+The page uses a restrained editorial direction: ink-on-paper light theme, a single
+deep-navy accent, hairline rules instead of glass cards, and real paper figures rather
+than decorative gradients. Motion is intentionally minimal (scroll-reveal plus the
+leaderboard bar fill), implemented with GSAP ScrollTrigger and disabled under
+`prefers-reduced-motion`.
+
 ## Files
 
-- `index.html`: homepage markup and content
-- `styles.css`: luxe dark/light theme, aurora background, glass cards, responsive layout
-- `main.js`: scroll-reveal, animated counters, interactive timeline, data-driven leaderboard, theme toggle, copy BibTeX
+- `index.html`: page markup and content
+- `styles.css`: editorial light theme, single accent, responsive layout
+- `main.js`: data-driven leaderboard, GSAP scroll-reveal, nav highlight, copy BibTeX
+- `assets/figures/`: figures exported from the paper (overview, taxonomy, construction, oracle, rotation)
 - `assets/og-card.svg`: social preview card
 - `assets/favicon.svg`: site icon
 
 ## Remaining Real Assets To Add
 
-- final arXiv or proceedings paper link
+- final arXiv or proceedings paper link (the hero `Paper` button currently points to `#`)
 - supplementary link, if released separately
-- teaser figure or overview figure
-- two or three short timeline examples
-- optional video demo montage
-- optional leaderboard or submission instructions
+- optional short timeline-example clips or a demo montage
 
-The current version keeps those slots visible but avoids depending on unfinished camera-ready assets.
+Figures are exported from `SVCBench_FINAL/figures/*.pdf` with
+`pdftocairo -png -r 200 -singlefile`. Re-run that command to refresh them if the paper
+figures change.
