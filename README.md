@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>VCBench: A Streaming Counting Benchmark for Spatial-Temporal State Maintenance in Long Videos</h1>
+<h1>SVCBench: A Streaming Video Counting Benchmark for Spatial-Temporal State Maintenance</h1>
 
 <div>
     <a href='https://github.com/buaaplay' target='_blank'>Pengyiang Liu</a><sup>1</sup>&emsp;
@@ -23,8 +23,8 @@
         <a href="https://arxiv.org/abs/2603.12703" target='_blank'>
         <img src="https://img.shields.io/badge/arXiv-2603.12703-b31b1b.svg">
         </a>
-        <a href="https://huggingface.co/datasets/buaaplay/VCBench" target='_blank'>
-        <img src="https://img.shields.io/badge/🤗%20Dataset-VCBench-yellow">
+        <a href="https://huggingface.co/datasets/buaaplay/SVCBench" target='_blank'>
+        <img src="https://img.shields.io/badge/🤗%20Dataset-SVCBench-yellow">
         </a>
         <a href="#-citation" target='_blank'>
         <img src="https://img.shields.io/badge/Cite-BibTeX-blue">
@@ -32,7 +32,7 @@
     </h4>
 </div>
 
-<strong>VCBench is a streaming counting benchmark that treats counting as a minimal probe for diagnosing spatial-temporal state maintenance in video-language models.</strong>
+<strong>SVCBench is a streaming video counting benchmark that treats counting as a minimal probe for diagnosing spatial-temporal state maintenance in video-language models.</strong>
 
 <div style="text-align:center">
 <img src="assets/teaser.png"  width="100%" height="100%">
@@ -44,15 +44,16 @@
 
 ## 📢 News
 
-* **[2026-03]** 🔥 VCBench paper is released on [arXiv](https://arxiv.org/abs/2603.12703).
+* **[2026-03]** 🔥 SVCBench paper is released on [arXiv](https://arxiv.org/abs/2603.12703).
 * **[2026-04]** 🚀 Code, evaluation scripts, and benchmark data are open-sourced.
+* **[2026-06]** 🎉 SVCBench is accepted to **ECCV 2026**!
 
 ## 💡 Highlights
 
-* **Streaming Evaluation Protocol**. VCBench queries a model at multiple time points during video playback and measures how its predictions evolve over time, rather than only checking a single final answer.
+* **Streaming Evaluation Protocol**. SVCBench queries a model at multiple time points during video playback and measures how its predictions evolve over time, rather than only checking a single final answer.
 * **Fine-grained Taxonomy**. The benchmark decomposes counting into 8 subcategories across two axes (object counting & event counting), covering current-state snapshots, state deltas, identity tracking, windowed gains, atomic actions, state transitions, episodic segments, and periodic actions.
 * **Large-scale Annotations**. 406 videos, 1,000 questions, 4,576 query points, and 10,071 annotated event/state-change moments.
-* **Three Complementary Metrics**. GPA (Gaussian Precision Accuracy), MoC (Monotonicity Consistency), and UDA (Update Direction Accuracy) for comprehensive evaluation.
+* **Three Complementary Metrics**. GPA (Gaussian Precision Accuracy), MoC (Monotonicity Consistency), and UDA (Update Detection Accuracy) for comprehensive evaluation.
 
 ## 🛠️ Usage
 
@@ -67,7 +68,7 @@ pip install -r requirements.txt
 Download the benchmark videos from Hugging Face:
 
 ```bash
-huggingface-cli download buaaplay/VCBench --repo-type dataset --local-dir data/videos
+huggingface-cli download buaaplay/SVCBench --repo-type dataset --local-dir data/videos
 ```
 
 The videos should be organized as:
@@ -93,7 +94,7 @@ bash run_gemini_eval.sh --video-dir data/videos --limit 5
 ```
 
 The script will:
-1. Run Gemini on a demo slice of VCBench
+1. Run Gemini on a demo slice of SVCBench
 2. Write raw per-query-point outputs to `outputs/`
 3. Convert the raw file to unified format
 4. Compute GPA, MoC, and UDA
@@ -127,15 +128,15 @@ python eval/compute_metrics.py outputs/unified.jsonl data/vcbench_eval.jsonl
 |--------|-------------|-----------|
 | GPA | Gaussian Precision Accuracy | Higher is better |
 | MoC | Monotonicity Consistency | Higher is better |
-| UDA | Update Direction Accuracy | Higher is better |
+| UDA | Update Detection Accuracy | Higher is better |
 
 ## 📝 Citation
 
 If you find this work useful, please consider citing our paper:
 
 ```bibtex
-@misc{liu2026vcbench,
-      title={VCBench: A Streaming Counting Benchmark for Spatial-Temporal State Maintenance in Long Videos}, 
+@misc{liu2026svcbench,
+      title={SVCBench: A Streaming Video Counting Benchmark for Spatial-Temporal State Maintenance}, 
       author={Pengyiang Liu and Zhongyue Shi and Hongye Hao and Qi Fu and Xueting Bi and Siwei Zhang and Xiaoyang Hu and Zitian Wang and Linjiang Huang and Si Liu},
       year={2026},
       eprint={2603.12703},
@@ -147,7 +148,7 @@ If you find this work useful, please consider citing our paper:
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](./LICENSE). The dataset (`data/`) is released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+This project is licensed under the [Apache License 2.0](./LICENSE). The dataset (`data/`) is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), for non-commercial research use.
 
 ## 🙏 Acknowledgement
 
