@@ -148,7 +148,9 @@ If you find this work useful, please consider citing our paper:
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](./LICENSE). The dataset (`data/`) is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), for non-commercial research use.
+The code in this repository is released under the [Apache License 2.0](./LICENSE). The SVCBench annotations (event/state-change timestamps, per-individual first-appearance times, and streaming query points) and our self-generated physics-simulation videos are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+The source videos retain their respective original licenses, and by downloading SVCBench you agree to comply with the terms of each source: Ego4D (Ego4D License), ScanNet / ScanNet++ (Terms of Use, non-commercial research), ARKitScenes (Apple ARKitScenes license), RoomTour3D (CC BY-NC), CODa (Apache-2.0), OmniWorld (CC BY-NC), TOMATO (original TOMATO terms), and YouTube content (platform and creator terms).
 
 ## 🙏 Acknowledgement
 
