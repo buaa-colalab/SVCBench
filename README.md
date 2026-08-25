@@ -135,14 +135,11 @@ python eval/compute_metrics.py outputs/unified.jsonl data/vcbench_eval.jsonl
 If you find this work useful, please consider citing our paper:
 
 ```bibtex
-@misc{liu2026svcbench,
-      title={SVCBench: A Streaming Video Counting Benchmark for Spatial-Temporal State Maintenance}, 
-      author={Pengyiang Liu and Zhongyue Shi and Hongye Hao and Qi Fu and Xueting Bi and Siwei Zhang and Xiaoyang Hu and Zitian Wang and Linjiang Huang and Si Liu},
-      year={2026},
-      eprint={2603.12703},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2603.12703}, 
+@inproceedings{liu2026svcbench,
+  title     = {{SVCBench}: A Streaming Video Counting Benchmark for Spatial-Temporal State Maintenance},
+  author    = {Liu, Pengyiang and Shi, Zhongyue and Hao, Hongye and Fu, Qi and Bi, Xueting and Zhang, Siwei and Hu, Xiaoyang and Wang, Zitian and Huang, Linjiang and Liu, Si},
+  booktitle = {European Conference on Computer Vision},
+  year      = {2026}
 }
 ```
 
